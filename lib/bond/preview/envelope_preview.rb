@@ -2,13 +2,8 @@ require 'faraday'
 require 'json'
 
 module Bond
-  class EnvelopePreview
-    attr_accessor :encoded_envelope, :encoded_envelope_hash, :encoded_envelope_timestamp, :img, :request_params
-
-    # @param [Hash] attributes
-    def initialize(attributes = {})
-      @request_params = attributes
-    end
+  class EnvelopePreview < Preview
+    attr_accessor :encoded_envelope, :encoded_envelope_hash, :encoded_envelope_timestamp, :img
 
     # @return [Hash] attributes
     def request_preview

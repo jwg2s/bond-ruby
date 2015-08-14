@@ -4,8 +4,9 @@ require_relative 'bond/errors'
 require_relative 'bond/account'
 require_relative 'bond/order'
 require_relative 'bond/message'
-require_relative 'bond/message_preview'
-require_relative 'bond/envelope_preview'
+require_relative 'bond/preview'
+require_relative 'bond/preview/message_preview'
+require_relative 'bond/preview/envelope_preview'
 
 
 module Bond
