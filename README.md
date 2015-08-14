@@ -1,6 +1,7 @@
 # Bond
 [![Circle CI](https://circleci.com/gh/jwg2s/bond-ruby/tree/develop.svg?style=shield)](https://circleci.com/gh/jwg2s/bond-ruby/tree/develop)
 [![Code Climate](https://codeclimate.com/github/jwg2s/bond-ruby/badges/gpa.svg)](https://codeclimate.com/github/jwg2s/bond-ruby)
+[![Test Coverage](https://codeclimate.com/github/jwg2s/bond-ruby/badges/coverage.svg)](https://codeclimate.com/github/jwg2s/bond-ruby/coverage)
 
 Full documentation of the Bond API can be found here: http://docs.bond.apiary.io.
 
