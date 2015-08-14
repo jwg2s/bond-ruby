@@ -8,3 +8,5 @@ VCR.configure do |c|
   c.cassette_library_dir = 'test/fixtures'
   c.hook_into :webmock
 end
+
+Bond.api_key = 'UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2'

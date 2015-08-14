@@ -3,7 +3,7 @@ require_relative './test_helper'
 class AccountTest < Minitest::Test
   def test_returns_single_account
     VCR.use_cassette('account') do
-      account = Bond::Account.new('UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2')
+      account = Bond::Account.new
       assert_equal Bond::Account, account.class
 
       # Check that the fields are accessible by our model
