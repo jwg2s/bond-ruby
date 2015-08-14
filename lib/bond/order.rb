@@ -7,9 +7,7 @@ module Bond
 
     class << self
       def all
-        conn = Faraday.new(url: Bond::API_URL)
-        conn.basic_auth(Bond.api_key, nil)
-        response = conn.get('/orders')
+        response = Bond::Connection.connection.get('/orders')
 
         JSON.parse(response.body)['data'].map do |attributes|
           new(attributes)
@@ -17,17 +15,13 @@ module Bond
       end
 
       def find(guid)
-        conn = Faraday.new(url: Bond::API_URL)
-        conn.basic_auth(Bond.api_key, nil)
-        response = conn.get("/orders/#{guid}")
+        response = Bond::Connection.connection.get("/orders/#{guid}")
         attributes = JSON.parse(response.body)['data']
         new(attributes)
       end
 
       def create
-        conn = Faraday.new(url: Bond::API_URL)
-        conn.basic_auth(Bond.api_key, nil)
-        response = conn.post('/orders')
+        response = Bond::Connection.connection.post('/orders')
         attributes = JSON.parse(response.body)['data']
         new(attributes)
       end
@@ -39,9 +33,7 @@ module Bond
     end
 
     def process
-      conn = Faraday.new(url: Bond::API_URL)
-      conn.basic_auth(Bond.api_key, nil)
-      response = conn.post("/orders/#{guid}/process")
+      response = Bond::Connection.connection.post("/orders/#{guid}/process")
       attributes = JSON.parse(response.body)['data']
       attributes.each { |name, value| instance_variable_set("@#{name}", value) }
       self.links = JSON.parse(response.body)['links']
@@ -51,9 +43,7 @@ module Bond
     def add_message(message_hash)
       # TODO: VALIDATE MESSAGE HASH
 
-      conn = Faraday.new(url: Bond::API_URL)
-      conn.basic_auth(Bond.api_key, nil)
-      response = conn.post("/orders/#{guid}/messages", message_hash)
+      response = Bond::Connection.connection.post("/orders/#{guid}/messages", message_hash)
 
       @messages = nil
       response.success?
@@ -61,9 +51,7 @@ module Bond
 
     def messages
       @messages ||= begin
-        conn = Faraday.new(url: Bond::API_URL)
-        conn.basic_auth(Bond.api_key, nil)
-        response = conn.get("/orders/#{guid}/messages")
+        response = Bond::Connection.connection.get("/orders/#{guid}/messages")
         messages = JSON.parse(response.body)['data']
         messages.map do |attributes|
           Message.new(attributes)

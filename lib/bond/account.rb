@@ -10,10 +10,7 @@ module Bond
                   :links
 
     def initialize
-      conn = Faraday.new(url: Bond::API_URL)
-      conn.basic_auth(Bond.api_key, nil)
-      response = conn.get('/account')
-
+      response = Bond::Connection.connection.get('/account')
       attributes = JSON.parse(response.body)
 
       @first_name = attributes['data']['first_name']

@@ -11,9 +11,7 @@ module Bond
     end
 
     def request_preview
-      conn = Faraday.new(url: Bond::API_URL)
-      conn.basic_auth(Bond.api_key, nil)
-      response = conn.post('/messages/preview/envelope', request_params)
+      response = Bond::Connection.connection.post('/messages/preview/envelope', request_params)
       attributes = JSON.parse(response.body)['data']
 
       attributes.each { |name, value| instance_variable_set("@#{name}", value) }
