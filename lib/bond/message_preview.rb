@@ -2,7 +2,7 @@ require 'faraday'
 require 'json'
 
 module Bond
-  class Preview
+  class MessagePreview
     attr_accessor :encoded_content, :encoded_content_hash, :encoded_content_timestamp, :img, :request_params
 
     # @param [Hash] attributes

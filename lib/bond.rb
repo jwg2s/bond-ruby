@@ -1,7 +1,8 @@
 require_relative 'bond/version'
 require_relative 'bond/account'
 require_relative 'bond/order'
-require_relative 'bond/preview'
+require_relative 'bond/message_preview'
+require_relative 'bond/envelope_preview'
 
 
 module Bond
