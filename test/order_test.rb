@@ -44,4 +44,15 @@ class OrderTest < Minitest::Test
       assert_equal '2015-08-14 12:38:16', order.created_at
     end
   end
+
+  def test_process_single_order
+    VCR.use_cassette('process_order') do
+      order = Bond::Order.create
+      order.process
+      assert_equal '2015-08-14 12:48:20', order.created_at
+      assert_equal '55cd-e394-63aa-f', order.guid
+      assert_equal ({ 'self' => 'https://api.hellobond.com/orders/55cd-e394-63aa-f',
+                      'messages' => 'https://api.hellobond.com/orders/55cd-e394-63aa-f/messages' }), order.links
+    end
+  end
 end
