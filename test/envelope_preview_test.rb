@@ -28,7 +28,7 @@ class EnvelopePreviewTest < Minitest::Test
       }
     }
 
-    VCR.use_cassette('envelope_preview/success_get_envelope_preview') do
+    VCR.use_cassette('envelope_preview/success_get_envelope_preview', :match_requests_on => [:path]) do
       envelope_preview = Bond::EnvelopePreview.new(preview_hash)
       envelope_preview.request_preview
 

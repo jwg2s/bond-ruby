@@ -13,6 +13,8 @@ module Bond
       response = Bond::Connection.connection.get('/account')
       attributes = JSON.parse(response.body)
 
+      raise Bond::AuthenticationError.new('Unauthorized') if attributes['errors']
+
       @first_name = attributes['data']['first_name']
       @last_name = attributes['data']['last_name']
       @email = attributes['data']['email']

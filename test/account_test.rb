@@ -2,7 +2,7 @@ require_relative './test_helper'
 
 class AccountTest < Minitest::Test
   def test_returns_single_account
-    VCR.use_cassette('account/success_get_account') do
+    VCR.use_cassette('account/success_get_account', :match_requests_on => [:path], :match_requests_on => [:path]) do
       account = Bond::Account.new
       assert_equal Bond::Account, account.class
 
@@ -16,5 +16,16 @@ class AccountTest < Minitest::Test
                      'handwriting-styles' => 'https://api.hellobond.com/account/handwriting-styles' }
                    ), account.links
     end
+  end
+
+  def test_handle_failure
+    original_key = Bond.api_key
+    VCR.use_cassette('account/failure_get_account', :match_requests_on => [:path]) do
+      Bond.api_key = nil
+      assert_raises Bond::AuthenticationError do
+        Bond::Account.new
+      end
+    end
+    Bond.api_key = original_key
   end
 end
