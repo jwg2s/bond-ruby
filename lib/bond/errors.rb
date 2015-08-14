@@ -21,7 +21,7 @@ module Bond
   end
 
   # Raised when the request has a bad syntax
-  class BadRequestError < BondError
+  class ArgumentError < BondError
   end
 
   # Raised when the request throws an error not accounted for

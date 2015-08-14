@@ -22,9 +22,7 @@ class AccountTest < Minitest::Test
     original_key = Bond.api_key
     VCR.use_cassette('account/failure_get_account', :match_requests_on => [:path]) do
       Bond.api_key = nil
-      assert_raises Bond::AuthenticationError do
-        Bond::Account.new
-      end
+      assert_raises(Bond::AuthenticationError) { Bond::Account.new }
     end
     Bond.api_key = original_key
   end

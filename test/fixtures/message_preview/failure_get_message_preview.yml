@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/messages/preview/content
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 14 Aug 2015 16:42:52 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.26
+      Content-Length:
+      - '150'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"code":20,"field":"stationery_id","message":"The stationery
+        id field is required."},{"code":20,"field":"handwriting.id","message":"The
+        handwriting style field is required."},{"code":20,"field":"handwriting.size","message":"The
+        handwriting size field is rquired."},{"code":20,"field":"content","message":"The
+        content field is required."}]}'
+    http_version: 
+  recorded_at: Fri, 14 Aug 2015 16:42:52 GMT
+recorded_with: VCR 2.9.3
