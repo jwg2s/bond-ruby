@@ -11,7 +11,7 @@ class MessagePreviewTest < Minitest::Test
       }
     }
 
-    VCR.use_cassette('get_message_preview') do
+    VCR.use_cassette('message_preview/success_get_message_preview') do
       message_preview = Bond::MessagePreview.new(preview_hash)
       message_preview.request_preview
 

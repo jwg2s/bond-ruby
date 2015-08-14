@@ -2,7 +2,7 @@ require_relative './test_helper'
 
 class OrderTest < Minitest::Test
   def test_returns_all_orders
-    VCR.use_cassette('orders') do
+    VCR.use_cassette('order/success_get_orders') do
       orders = Bond::Order.all
       order = orders.first
       assert_equal '54f0-b9d4-947e-7', order.guid
@@ -21,7 +21,7 @@ class OrderTest < Minitest::Test
   end
 
   def test_return_single_order
-    VCR.use_cassette('order') do
+    VCR.use_cassette('order/success_get_order') do
       order = Bond::Order.find(1)
       assert_equal '54f0-b9d4-947e-7', order.guid
       assert_equal '2015-01-01 12:00:00', order.created_at
@@ -38,7 +38,7 @@ class OrderTest < Minitest::Test
   end
 
   def test_create_single_order
-    VCR.use_cassette('create_order') do
+    VCR.use_cassette('order/success_create_order') do
       order = Bond::Order.create
       assert_equal '55cd-e138-32dc-7', order.guid
       assert_equal '2015-08-14 12:38:16', order.created_at
@@ -46,7 +46,7 @@ class OrderTest < Minitest::Test
   end
 
   def test_process_single_order
-    VCR.use_cassette('process_order') do
+    VCR.use_cassette('order/success_process_order') do
       order = Bond::Order.create
       order.process
       assert_equal '2015-08-14 12:48:20', order.created_at
@@ -57,7 +57,7 @@ class OrderTest < Minitest::Test
   end
 
   def test_add_and_retrieve_message
-    VCR.use_cassette('add_messages_to_order') do
+    VCR.use_cassette('order/success_add_message') do
       message_preview = Bond::MessagePreview.new(
         'content': 'The essence of being human is that one does not seek perfection.',
         'stationery_id': 583819,
