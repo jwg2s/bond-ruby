@@ -23,6 +23,14 @@ module Bond
         attributes = JSON.parse(response.body)['data']
         new(attributes)
       end
+
+      def create
+        conn = Faraday.new(url: Bond::API_URL)
+        conn.basic_auth(Bond.api_key, nil)
+        response = conn.post('/orders')
+        attributes = JSON.parse(response.body)['data']
+        new(attributes)
+      end
     end
 
     # @param [Hash] attributes

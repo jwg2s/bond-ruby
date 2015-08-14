@@ -36,4 +36,12 @@ class OrderTest < Minitest::Test
       assert_equal 3.48, order.total
     end
   end
+
+  def test_create_single_order
+    VCR.use_cassette('create_order') do
+      order = Bond::Order.create
+      assert_equal '55cd-e138-32dc-7', order.guid
+      assert_equal '2015-08-14 12:38:16', order.created_at
+    end
+  end
 end
