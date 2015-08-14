@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/orders
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 14 Aug 2015 13:07:38 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.26
+      Content-Length:
+      - '87'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"guid":"55cd-e81a-1401-9","created_at":"2015-08-14 13:07:38"}}'
+    http_version: 
+  recorded_at: Fri, 14 Aug 2015 13:07:38 GMT
+- request:
+    method: post
+    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/orders/55cd-e81a-1401-9/messages
+    body:
+      encoding: UTF-8
+      string: content=The+essence+of+being+human+is+that+one+does+not+seek+perfection.&encoded_content=R2VvcmdlIE9yd2VsbA%3D%3D&encoded_content_hash=R2VvcmdlIE9yd2VsbA%3D%3D...&encoded_content_timestamp=1425070006&encoded_envelope=R2VvcmdlIE9yd2VsbA%3D%3D&encoded_envelope_hash=R2VvcmdlIE9yd2VsbA%3D%3D...&encoded_envelope_timestamp=1425070006&handwriting%5Bid%5D=10000&handwriting%5Bsize%5D=14&recipient_address%5Baddress_1%5D=123+Fake+Street&recipient_address%5Baddress_2%5D=Floor+2&recipient_address%5Bbusiness_name%5D=Animal+Farm&recipient_address%5Bcity%5D=New+York&recipient_address%5Bname%5D=Napoleon&recipient_address%5Bstate%5D=NY&recipient_address%5Bzip%5D=10001&sender_address%5Baddress_1%5D=123+Fake+Street&sender_address%5Baddress_2%5D=Floor+2&sender_address%5Bbusiness_name%5D=&sender_address%5Bcity%5D=New+York&sender_address%5Bname%5D=George+Orwell&sender_address%5Bstate%5D=NY&sender_address%5Bzip%5D=10001&stationery_id=10000
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 14 Aug 2015 13:07:38 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.26
+      Content-Length:
+      - '128'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"code":20,"field":"encoded_content","message":"Your message
+        requires a valid content preview."},{"code":20,"field":"encoded_envelope","message":"Your
+        message requires a valid envelope preview."}]}'
+    http_version: 
+  recorded_at: Fri, 14 Aug 2015 13:07:38 GMT
+recorded_with: VCR 2.9.3
