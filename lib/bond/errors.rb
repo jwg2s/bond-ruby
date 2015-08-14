@@ -6,13 +6,15 @@ module Bond
       # @param [Hash] json
       def handle_errors(json)
         errors = json['errors']
-        raise Bond::BondError.new(errors.map { |error| "Code: #{error['code']}. Message: #{error['message']}" }.join(' ')) if errors
+        if errors
+          error_message = errors.map { |error| "Code: #{error['code']}. Message: #{error['message']}" }.join(' ')
+          raise Bond::BondError.new(error_message)
+        end
       end
     end
 
-    def initialize(message, http_code = nil, error_code = application_error_code)
-      @http_code = http_code
-      @application_error_code = error_code
+    # @param [String] message
+    def initialize(message)
       super(message)
     end
   end

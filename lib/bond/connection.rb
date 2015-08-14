@@ -5,6 +5,8 @@ module Bond
     attr_accessor :connection
 
     class << self
+      # Create instances of connection object to ensure thread safety
+      # @return [Faraday] connection
       def connection
         new.connection
       end

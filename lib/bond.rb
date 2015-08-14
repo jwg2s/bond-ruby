@@ -11,10 +11,12 @@ require_relative 'bond/envelope_preview'
 module Bond
   API_URL = 'https://api.hellobond.com'
 
+  # @param [String] key
   def self.api_key=(key)
     @api_key = key
   end
 
+  # @return [String]
   def self.api_key
     @api_key
   end

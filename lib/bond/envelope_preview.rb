@@ -10,6 +10,7 @@ module Bond
       @request_params = attributes
     end
 
+    # @return [Hash] attributes
     def request_preview
       response = Bond::Connection.connection.post('/messages/preview/envelope', request_params)
       json = JSON.parse(response.body)
@@ -18,6 +19,7 @@ module Bond
 
       attributes = json['data']
       attributes.each { |name, value| instance_variable_set("@#{name}", value) }
+      attributes
     end
   end
 end
