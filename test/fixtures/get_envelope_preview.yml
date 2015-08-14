@@ -5,7 +5,7 @@ http_interactions:
     uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/messages/preview/envelope
     body:
       encoding: UTF-8
-      string: handwriting%5Bid%5D=583811&handwriting%5Bsize%5D=14&recipient_address%5Baddress_1%5D=123+Fake+Street&recipient_address%5Baddress_2%5D=Floor+2&recipient_address%5Bbusiness_name%5D=Animal+Farm&recipient_address%5Bcity%5D=New+York&recipient_address%5Bname%5D=Napoleon&recipient_address%5Bstate%5D=NY&recipient_address%5Bzip%5D=10001&sender_address%5Baddress_1%5D=123+Fake+Street&sender_address%5Baddress_2%5D=Floor+2&sender_address%5Bbusiness_name%5D=&sender_address%5Bcity%5D=New+York&sender_address%5Bname%5D=George+Orwell&sender_address%5Bstate%5D=NY&sender_address%5Bzip%5D=10001&stationery_id=585426
+      string: handwriting%5Bid%5D=583811&handwriting%5Bsize%5D=14&recipient_address%5Baddress_1%5D=123+Fake+Street&recipient_address%5Baddress_2%5D=Floor+2&recipient_address%5Bbusiness_name%5D=Animal+Farm&recipient_address%5Bcity%5D=New+York&recipient_address%5Bname%5D=Napoleon&recipient_address%5Bstate%5D=NY&recipient_address%5Bzip%5D=10001&sender_address%5Baddress_1%5D=123+Fake+Street&sender_address%5Baddress_2%5D=Floor+2&sender_address%5Bbusiness_name%5D=&sender_address%5Bcity%5D=New+York&sender_address%5Bname%5D=George+Orwell&sender_address%5Bstate%5D=NY&sender_address%5Bzip%5D=10001&stationery_id=583819
     headers:
       User-Agent:
       - Faraday v0.9.1

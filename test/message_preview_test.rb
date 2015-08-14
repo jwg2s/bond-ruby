@@ -4,7 +4,7 @@ class MessagePreviewTest < Minitest::Test
   def test_request_preview
     preview_hash = {
       'content': 'The essence of being human is that one does not seek perfection.',
-      'stationery_id': 585426,
+      'stationery_id': 583819,
       'handwriting': {
         'id': 583811,
         'size': 14

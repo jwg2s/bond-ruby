@@ -47,5 +47,28 @@ module Bond
       self.links = JSON.parse(response.body)['links']
       self
     end
+
+    def add_message(message_hash)
+      # TODO: VALIDATE MESSAGE HASH
+
+      conn = Faraday.new(url: Bond::API_URL)
+      conn.basic_auth(Bond.api_key, nil)
+      response = conn.post("/orders/#{guid}/messages", message_hash)
+
+      @messages = nil
+      response.success?
+    end
+
+    def messages
+      @messages ||= begin
+        conn = Faraday.new(url: Bond::API_URL)
+        conn.basic_auth(Bond.api_key, nil)
+        response = conn.get("/orders/#{guid}/messages")
+        messages = JSON.parse(response.body)['data']
+        messages.map do |attributes|
+          Message.new(attributes)
+        end
+      end
+    end
   end
 end

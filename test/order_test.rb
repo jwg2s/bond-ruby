@@ -55,4 +55,86 @@ class OrderTest < Minitest::Test
                       'messages' => 'https://api.hellobond.com/orders/55cd-e394-63aa-f/messages' }), order.links
     end
   end
+
+  def test_add_and_retrieve_message
+    VCR.use_cassette('add_messages_to_order') do
+      message_preview = Bond::MessagePreview.new(
+        'content': 'The essence of being human is that one does not seek perfection.',
+        'stationery_id': 583819,
+        'handwriting': {
+          'id': 583811,
+          'size': 14
+        }
+      )
+      message_preview.request_preview
+
+      envelope_preview = Bond::EnvelopePreview.new(
+        'recipient_address': {
+          'name': 'Napoleon',
+          'business_name': 'Animal Farm',
+          'address_1': '123 Fake Street',
+          'address_2': 'Floor 2',
+          'city': 'New York',
+          'state': 'NY',
+          'zip': '10001'
+        },
+        'sender_address': {
+          'name': 'George Orwell',
+          'business_name': '',
+          'address_1': '123 Fake Street',
+          'address_2': 'Floor 2',
+          'city': 'New York',
+          'state': 'NY',
+          'zip': '10001'
+        },
+        'stationery_id': 583819,
+        'handwriting': {
+          'id': 583811,
+          'size': 14
+        }
+      )
+
+      envelope_preview.request_preview
+
+      message_hash = {
+        'stationery_id': 583819,
+        'handwriting': {
+          'id': 583811,
+          'size': 14
+        },
+        'content': 'The essence of being human is that one does not seek perfection.',
+        'encoded_content': message_preview.encoded_content,
+        'encoded_content_hash': message_preview.encoded_content_hash,
+        'encoded_content_timestamp': message_preview.encoded_content_timestamp,
+        'encoded_envelope': envelope_preview.encoded_envelope,
+        'encoded_envelope_hash': envelope_preview.encoded_envelope_hash,
+        'encoded_envelope_timestamp': envelope_preview.encoded_envelope_timestamp,
+        'recipient_address': {
+          'name': 'Napoleon',
+          'business_name': 'Animal Farm',
+          'address_1': '123 Fake Street',
+          'address_2': 'Floor 2',
+          'city': 'New York',
+          'state': 'NY',
+          'zip': '10001'
+        },
+        'sender_address': {
+          'name': 'George Orwell',
+          'business_name': '',
+          'address_1': '123 Fake Street',
+          'address_2': 'Floor 2',
+          'city': 'New York',
+          'state': 'NY',
+          'zip': '10001'
+        }
+      }
+
+      order = Bond::Order.create
+      assert_equal true, order.add_message(message_hash)
+
+      order.process
+
+      assert_equal 1, order.messages.count
+    end
+  end
 end

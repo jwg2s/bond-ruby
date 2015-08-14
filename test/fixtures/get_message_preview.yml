@@ -5,7 +5,7 @@ http_interactions:
     uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/messages/preview/content
     body:
       encoding: UTF-8
-      string: content=The+essence+of+being+human+is+that+one+does+not+seek+perfection.&handwriting%5Bid%5D=583811&handwriting%5Bsize%5D=14&stationery_id=585426
+      string: content=The+essence+of+being+human+is+that+one+does+not+seek+perfection.&handwriting%5Bid%5D=583811&handwriting%5Bsize%5D=14&stationery_id=583819
     headers:
       User-Agent:
       - Faraday v0.9.1

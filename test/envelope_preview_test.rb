@@ -21,7 +21,7 @@ class EnvelopePreviewTest < Minitest::Test
         'state': 'NY',
         'zip': '10001'
       },
-      'stationery_id': 585426,
+      'stationery_id': 583819,
       'handwriting': {
         'id': 583811,
         'size': 14
@@ -31,7 +31,7 @@ class EnvelopePreviewTest < Minitest::Test
     VCR.use_cassette('get_envelope_preview') do
       envelope_preview = Bond::EnvelopePreview.new(preview_hash)
       envelope_preview.request_preview
-      
+
       refute_nil envelope_preview.encoded_envelope
       refute_nil envelope_preview.encoded_envelope_hash
       refute_nil envelope_preview.encoded_envelope_timestamp
