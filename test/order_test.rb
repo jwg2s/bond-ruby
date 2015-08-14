@@ -60,7 +60,7 @@ class OrderTest < Minitest::Test
 
   def test_failure_create_single_order_out_of_credits
     VCR.use_cassette('order/failure_create_order', :match_requests_on => [:path]) do
-      assert_raises(Bond::ArgumentError) { Bond::Order.create }
+      assert_raises(Bond::BondError) { Bond::Order.create }
     end
   end
 
@@ -78,7 +78,7 @@ class OrderTest < Minitest::Test
   def test_failure_process_single_order
     VCR.use_cassette('order/failure_process_order', :match_requests_on => [:path]) do
       order = Bond::Order.create
-      assert_raises(Bond::ArgumentError) { order.process }
+      assert_raises(Bond::BondError) { order.process }
     end
   end
 

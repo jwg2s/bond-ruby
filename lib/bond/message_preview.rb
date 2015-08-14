@@ -15,19 +15,10 @@ module Bond
 
       json = JSON.parse(response.body)
 
-      handle_errors(json)
+      Bond::BondError.handle_errors(json)
 
       attributes = json['data']
       attributes.each { |name, value| instance_variable_set("@#{name}", value) }
-    end
-
-    private
-
-    def handle_errors(json)
-      errors = json['errors']
-      if errors
-        raise Bond::ArgumentError.new("#{errors.map { |hash| hash['field'] }.join(', ')} are missing.")
-      end
     end
   end
 end

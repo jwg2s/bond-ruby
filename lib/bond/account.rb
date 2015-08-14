@@ -3,23 +3,16 @@ require 'json'
 
 module Bond
   class Account
-    attr_accessor :first_name,
-                  :last_name,
-                  :email,
-                  :credits,
-                  :links
+    attr_accessor :first_name, :last_name, :email, :credits, :links
 
     def initialize
       response = Bond::Connection.connection.get('/account')
-      attributes = JSON.parse(response.body)
+      json = JSON.parse(response.body)
 
-      raise Bond::AuthenticationError.new('Unauthorized') if attributes['errors']
+      Bond::BondError.handle_errors(json)
 
-      @first_name = attributes['data']['first_name']
-      @last_name = attributes['data']['last_name']
-      @email = attributes['data']['email']
-      @credits = attributes['data']['credits']
-      @links = attributes['links']
+      json['data'].each { |name, value| instance_variable_set("@#{name}", value) }
+      @links = json['links']
     end
   end
 end
