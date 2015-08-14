@@ -6,11 +6,19 @@ module Bond
     attr_accessor :guid, :created_at, :status, :products, :shipping, :total, :links
 
     class << self
-      def all
-        response = Bond::Connection.connection.get('/orders')
+      def all(options = {})
+        page = options[:page]
+        response = Bond::Connection.connection.get("/orders?page=#{page || 1}")
 
         JSON.parse(response.body)['data'].map do |attributes|
           new(attributes)
+        end
+      end
+
+      def pagination
+        @pagination ||= begin
+          response = Bond::Connection.connection.get('/orders')
+          JSON.parse(response.body)['pagination'] || {}
         end
       end
 
@@ -56,6 +64,13 @@ module Bond
         messages.map do |attributes|
           Message.new(attributes)
         end
+      end
+    end
+
+    def message_pagination
+      @message_pagination ||= begin
+        response = Bond::Connection.connection.get("/orders/#{guid}/messages")
+        JSON.parse(response.body)['pagination'] || {}
       end
     end
   end

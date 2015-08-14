@@ -2,7 +2,7 @@ require_relative './test_helper'
 
 class AccountTest < Minitest::Test
   def test_returns_single_account
-    VCR.use_cassette('account/success_get_account', :match_requests_on => [:path], :match_requests_on => [:path]) do
+    VCR.use_cassette('account/success_get_account', :match_requests_on => [:path]) do
       account = Bond::Account.new
       assert_equal Bond::Account, account.class
 

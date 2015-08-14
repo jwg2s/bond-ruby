@@ -20,6 +20,19 @@ class OrderTest < Minitest::Test
     end
   end
 
+  def test_return_pagination
+    VCR.use_cassette('order/success_get_orders', :match_requests_on => [:path]) do
+      pagination = Bond::Order.pagination
+      assert_equal ({ 'total' => 26,
+                      'per_page' => 25,
+                      'current_page' => 1,
+                      'total_pages' => 2,
+                      'prev_url' => nil,
+                      'next_url' => 'https://api.hellobond.com/orders?page=2'
+                   }), pagination
+    end
+  end
+
   def test_return_single_order
     VCR.use_cassette('order/success_get_order', :match_requests_on => [:path]) do
       order = Bond::Order.find(1)
@@ -135,6 +148,13 @@ class OrderTest < Minitest::Test
       order.process
 
       assert_equal 1, order.messages.count
+      assert_equal ({ 'total' => 1,
+                      'per_page' => 5,
+                      'current_page' => 1,
+                      'total_pages' => 1,
+                      'prev_url' => nil,
+                      'next_url' => nil
+                   }), order.message_pagination
     end
   end
 end
