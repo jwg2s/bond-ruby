@@ -38,4 +38,11 @@ class EnvelopePreviewTest < Minitest::Test
       refute_nil envelope_preview.img
     end
   end
+
+  def test_failure_request_preview
+    VCR.use_cassette('envelope_preview/failure_get_envelope_preview', :match_requests_on => [:path]) do
+      envelope_preview = Bond::EnvelopePreview.new
+      assert_raises(Bond::ArgumentError) { envelope_preview.request_preview }
+    end
+  end
 end
