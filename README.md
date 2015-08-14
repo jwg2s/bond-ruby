@@ -1,8 +1,8 @@
 # Bond
+[![Circle CI](https://circleci.com/gh/jwg2s/bond-ruby/tree/develop.svg?style=shield)](https://circleci.com/gh/jwg2s/bond-ruby/tree/develop)
+[![Code Climate](https://codeclimate.com/github/jwg2s/bond-ruby/badges/gpa.svg)](https://codeclimate.com/github/jwg2s/bond-ruby)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bond`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Full documentation of the Bond API can be found here: http://docs.bond.apiary.io.
 
 ## Installation
 
@@ -14,26 +14,36 @@ gem 'bond'
 
 And then execute:
 
-    $ bundle
+```
+bundle
+```
 
-Or install it yourself as:
+Or install it yourself with:
 
-    $ gem install bond
+```
+gem install bond
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+### Set your API Key
 
-## Development
+```
+Bond.api_key = 'XXX'
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Fetch your Account
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+Bond::Account.new
+```
+
+### More usages
+Please view the specs to find examples of how the various classes can be used together.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bond. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
+If you would like to contribute, please ensure any new functionality or modified existing functionality is well tested with automated tests.  Open a pull request to this repository and I will review it and make sure it is either accepted or rejected within a reasonable time.
 
 ## License
 
