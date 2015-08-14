@@ -58,6 +58,12 @@ class OrderTest < Minitest::Test
     end
   end
 
+  def test_failure_create_single_order_out_of_credits
+    VCR.use_cassette('order/failure_create_order', :match_requests_on => [:path]) do
+      assert_raises(Bond::ArgumentError) { Bond::Order.create }
+    end
+  end
+
   def test_process_single_order
     VCR.use_cassette('order/success_process_order', :match_requests_on => [:path]) do
       order = Bond::Order.create
@@ -66,6 +72,13 @@ class OrderTest < Minitest::Test
       assert_equal '55cd-e394-63aa-f', order.guid
       assert_equal ({ 'self' => 'https://api.hellobond.com/orders/55cd-e394-63aa-f',
                       'messages' => 'https://api.hellobond.com/orders/55cd-e394-63aa-f/messages' }), order.links
+    end
+  end
+
+  def test_failure_process_single_order
+    VCR.use_cassette('order/failure_process_order', :match_requests_on => [:path]) do
+      order = Bond::Order.create
+      assert_raises(Bond::ArgumentError) { order.process }
     end
   end
 

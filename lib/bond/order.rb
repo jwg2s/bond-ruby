@@ -30,8 +30,19 @@ module Bond
 
       def create
         response = Bond::Connection.connection.post('/orders')
-        attributes = JSON.parse(response.body)['data']
+        json = JSON.parse(response.body)
+
+        handle_errors(json)
+
+        attributes = json['data']
         new(attributes)
+      end
+
+      def handle_errors(json)
+        errors = json['errors']
+        if errors
+          raise Bond::ArgumentError.new(errors.map { |error| "Code: #{error['code']}. Message: #{error['message']}"}.join(' '))
+        end
       end
     end
 
@@ -42,9 +53,13 @@ module Bond
 
     def process
       response = Bond::Connection.connection.post("/orders/#{guid}/process")
-      attributes = JSON.parse(response.body)['data']
+      json = JSON.parse(response.body)
+
+      self.class.handle_errors(json)
+
+      attributes = json['data']
       attributes.each { |name, value| instance_variable_set("@#{name}", value) }
-      self.links = JSON.parse(response.body)['links']
+      self.links = json['links']
       self
     end
 
