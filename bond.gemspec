@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'bond/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'bond'
+  spec.name          = 'bond-ruby'
   spec.version       = Bond::VERSION
   spec.authors       = ['John Gerhardt']
   spec.email         = ['jgerhardt@contactually.com']

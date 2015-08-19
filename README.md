@@ -10,7 +10,7 @@ Full documentation of the Bond API can be found here: http://docs.bond.apiary.io
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'bond'
+gem 'bond-ruby'
 ```
 
 And then execute:
@@ -22,7 +22,7 @@ bundle
 Or install it yourself with:
 
 ```
-gem install bond
+gem install bond-ruby
 ```
 
 ## Usage
