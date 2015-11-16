@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/orders
+    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.bond.co/orders
     body:
       encoding: UTF-8
       string: ''

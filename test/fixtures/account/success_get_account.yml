@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/account
+    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.bond.co/account
     body:
       encoding: US-ASCII
       string: ''
@@ -36,7 +36,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"first_name":"Contactually","last_name":"Engineering","email":"engineering@contactually.com","credits":174},"links":{"stationery":"https:\/\/api.hellobond.com\/account\/stationery","handwriting-styles":"https:\/\/api.hellobond.com\/account\/handwriting-styles"}}'
+      string: '{"data":{"first_name":"Contactually","last_name":"Engineering","email":"engineering@contactually.com","credits":174},"links":{"stationery":"https:\/\/api.bond.co\/account\/stationery","handwriting-styles":"https:\/\/api.bond.co\/account\/handwriting-styles"}}'
     http_version: 
   recorded_at: Thu, 13 Aug 2015 22:46:16 GMT
 recorded_with: VCR 2.9.3

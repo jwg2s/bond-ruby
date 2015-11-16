@@ -12,8 +12,8 @@ class AccountTest < Minitest::Test
       assert_equal 'engineering@contactually.com', account.email
       assert_equal 174, account.credits
       assert_equal ({
-                     'stationery' => 'https://api.hellobond.com/account/stationery',
-                     'handwriting-styles' => 'https://api.hellobond.com/account/handwriting-styles' }
+                     'stationery' => 'https://api.bond.co/account/stationery',
+                     'handwriting-styles' => 'https://api.bond.co/account/handwriting-styles' }
                    ), account.links
     end
   end

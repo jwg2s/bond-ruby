@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/orders
+    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.bond.co/orders
     body:
       encoding: US-ASCII
       string: ''
@@ -36,7 +36,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: '{"data":[{"guid":"54f0-b9d4-947e-7","created_at":"2015-01-01 12:00:00","status":"complete","products":[{"id":1,"type":"stationery","name":"Big Brother is Watching","quantity":1,"price":2.99,"total":2.99}],"shipping":{"total":0.49},"total":3.48,"links":{"messages":"https://api.hellobond.com/orders/54f0-b9d4-947e-7/messages"}},{"guid":"54f0-b9d4-947e-7","created_at":"2015-01-01 12:00:00","status":"processing","products":[{"id":1,"type":"stationery","name":"Big Brother is Watching","quantity":1,"price":2.99,"total":2.99}],"shipping":{"total":0.49},"total":3.48,"links":{"messages":"https://api.hellobond.com/orders/54f0-b9d4-947e-7/messages"}}],"pagination":{"total":26,"per_page":25,"current_page":1,"total_pages":2,"prev_url":null,"next_url":"https://api.hellobond.com/orders?page=2"}}'
+      string: '{"data":[{"guid":"54f0-b9d4-947e-7","created_at":"2015-01-01 12:00:00","status":"complete","products":[{"id":1,"type":"stationery","name":"Big Brother is Watching","quantity":1,"price":2.99,"total":2.99}],"shipping":{"total":0.49},"total":3.48,"links":{"messages":"https://api.bond.co/orders/54f0-b9d4-947e-7/messages"}},{"guid":"54f0-b9d4-947e-7","created_at":"2015-01-01 12:00:00","status":"processing","products":[{"id":1,"type":"stationery","name":"Big Brother is Watching","quantity":1,"price":2.99,"total":2.99}],"shipping":{"total":0.49},"total":3.48,"links":{"messages":"https://api.bond.co/orders/54f0-b9d4-947e-7/messages"}}],"pagination":{"total":26,"per_page":25,"current_page":1,"total_pages":2,"prev_url":null,"next_url":"https://api.bond.co/orders?page=2"}}'
     http_version: 
   recorded_at: Fri, 14 Aug 2015 11:56:51 GMT
 recorded_with: VCR 2.9.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/orders
+    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.bond.co/orders
     body:
       encoding: UTF-8
       string: ''
@@ -43,7 +43,7 @@ http_interactions:
   recorded_at: Fri, 14 Aug 2015 12:48:20 GMT
 - request:
     method: post
-    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.hellobond.com/orders/55cd-e394-63aa-f/process
+    uri: https://UXpj28zjyvQ20exTENfVqm1Ydcy7TjM2:@api.bond.co/orders/55cd-e394-63aa-f/process
     body:
       encoding: UTF-8
       string: ''

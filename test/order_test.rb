@@ -16,7 +16,7 @@ class OrderTest < Minitest::Test
                        'total' => 2.99 }]), order.products
       assert_equal ({ 'total' => 0.49 }), order.shipping
       assert_equal 3.48, order.total
-      assert_equal ({ 'messages' => 'https://api.hellobond.com/orders/54f0-b9d4-947e-7/messages' }), order.links
+      assert_equal ({ 'messages' => 'https://api.bond.co/orders/54f0-b9d4-947e-7/messages' }), order.links
     end
   end
 
@@ -28,7 +28,7 @@ class OrderTest < Minitest::Test
                       'current_page' => 1,
                       'total_pages' => 2,
                       'prev_url' => nil,
-                      'next_url' => 'https://api.hellobond.com/orders?page=2'
+                      'next_url' => 'https://api.bond.co/orders?page=2'
                    }), pagination
     end
   end
@@ -70,8 +70,8 @@ class OrderTest < Minitest::Test
       order.process
       assert_equal '2015-08-14 12:48:20', order.created_at
       assert_equal '55cd-e394-63aa-f', order.guid
-      assert_equal ({ 'self' => 'https://api.hellobond.com/orders/55cd-e394-63aa-f',
-                      'messages' => 'https://api.hellobond.com/orders/55cd-e394-63aa-f/messages' }), order.links
+      assert_equal ({ 'self' => 'https://api.bond.co/orders/55cd-e394-63aa-f',
+                      'messages' => 'https://api.bond.co/orders/55cd-e394-63aa-f/messages' }), order.links
     end
   end
 

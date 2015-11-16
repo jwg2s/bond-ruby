@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.hellobond.com/account
+    uri: https://api.bond.co/account
     body:
       encoding: US-ASCII
       string: ''
